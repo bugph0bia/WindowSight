@@ -1,0 +1,56 @@
+﻿// WindowSight.idl : ActiveX コントロール プロジェクトのタイプ ライブラリ ソースです。
+
+// このファイルは、[!output PROJECT_NAME].ocx のリソース
+// になるタイプ ライブラリ (WindowSight.tlb) を生成するために MIDL コンパイラ ツールによって処理されます。これは次のリソースになります:
+// WindowSight.ocx。
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(250e639c-d31d-4a2f-b610-529c1f7cb654), version(1.0),
+  control ]
+library WindowSightLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  CWindowSightCtrl のプライマリ ディスパッチ インターフェイス
+	[ 
+		uuid(3401476e-db81-4d5e-9751-5073194dfa47),
+		hidden
+	]
+	dispinterface _DWindowSight
+	{
+		properties:
+			[id(1), nonbrowsable] OLE_HANDLE FoundHwnd;
+		methods:
+			[id(2)] void FlashFoundWindow();
+	};
+
+	//  CWindowSightCtrl のイベント ディスパッチ インターフェイス
+
+	[ 
+		uuid(82f28959-1de5-41ce-aec9-32e239aae5a4)
+	]
+	dispinterface _DWindowSightEvents
+	{
+		properties:
+			//  イベント インターフェイスにプロパティがありません。
+
+		methods:
+			[id(1)] void DragStart();
+			[id(2)] void DragEnd(OLE_HANDLE hWnd);
+			[id(3)] void ChangeTargetWindow(OLE_HANDLE hWnd);
+	};
+
+	//  CWindowSightCtrl のクラス情報
+	[
+		uuid(f2e384bf-7567-4362-ba1d-f1c96c43dcba)
+	]
+	coclass WindowSight
+	{
+		[default] dispinterface _DWindowSight;
+		[default, source] dispinterface _DWindowSightEvents;
+	};
+
+};
