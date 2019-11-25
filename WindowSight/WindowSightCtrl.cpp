@@ -220,7 +220,7 @@ OLE_HANDLE CWindowSightCtrl::GetFoundWindow()
 
 	// TODO: ここにディスパッチ ハンドラー コードを追加します
 
-	return (OLE_HANDLE)m_hWndFound;
+	return (OLE_HANDLE)HandleToULong(m_hWndFound);
 }
 
 
@@ -231,7 +231,7 @@ void CWindowSightCtrl::SetFoundWindow(OLE_HANDLE newVal)
 
 	// TODO: ここにプロパティ ハンドラー コードを追加します
 
-	m_hWndFound = (HWND)newVal;
+	m_hWndFound = (HWND)ULongToHandle(newVal);
 
 	SetModifiedFlag();
 }
@@ -327,7 +327,7 @@ void CWindowSightCtrl::OnLButtonUp(UINT nFlags, CPoint point)
 
 		// DragEndイベント発生
 		// 最後に反転表示していたウィンドウを通知
-		FireDragEnd((OLE_HANDLE)m_hWndFinding);
+		FireDragEnd((OLE_HANDLE)HandleToULong(m_hWndFinding));
 
 		// ドラッグ終了
 		SetIsDragging(FALSE);
@@ -361,7 +361,7 @@ void CWindowSightCtrl::OnMouseMove(UINT nFlags, CPoint point)
 			m_hWndFinding = hWndCursor;
 
 			// ChangeTargetWindowイベント発生
-			FireChangeTargetWindow((OLE_HANDLE)m_hWndFinding);
+			FireChangeTargetWindow((OLE_HANDLE)HandleToULong(m_hWndFinding));
 		}
 	}
 
