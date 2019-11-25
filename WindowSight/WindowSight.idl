@@ -22,7 +22,7 @@ library WindowSightLib
 	dispinterface _DWindowSight
 	{
 		properties:
-			[id(1), nonbrowsable] OLE_HANDLE FoundHwnd;
+			[id(1), nonbrowsable] OLE_HANDLE FoundWindow;
 		methods:
 			[id(2)] void FlashFoundWindow();
 	};
