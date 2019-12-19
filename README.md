@@ -69,7 +69,7 @@ MIT License
 3. イベントハンドラの追加方法
     1. AxWindowsSightクラス（AxWindowSightLib名前空間 - AxWindowSightクラス）に追加されているイベント変数とデリゲート型を利用することでイベントハンドラ関数を追加可能。
 
-[サンプル](/WindowSightTest)
+[C#サンプルアプリケーション](/WindowSightTest)
 
 ## リファレンス
 ### プロパティ
