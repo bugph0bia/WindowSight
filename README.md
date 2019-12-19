@@ -2,7 +2,7 @@ WindowSight
 ===
 
 ![Software Version](http://img.shields.io/badge/Version-v1.0.0-green.svg?style=flat)
-![Python Version](http://img.shields.io/badge/VisualStudio-2019-blue.svg?style=flat)
+![VS Version](http://img.shields.io/badge/VisualStudio-2019-blue.svg?style=flat)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 ## 概要
