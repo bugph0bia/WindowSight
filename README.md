@@ -9,6 +9,7 @@ WindowSight
 ウィンドウをピックアップするためのActiveX コントロール。Spy++ に搭載されているコントロールのように使用可能。  
 
 ![use](https://user-images.githubusercontent.com/18702413/69725860-81c72280-1162-11ea-9fd4-0e3412c9b112.gif)
+（ウィンドウ左上の照準のようなコントロール）  
 
 ## バージョン
 v1.0.0
