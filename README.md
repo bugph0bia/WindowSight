@@ -2,13 +2,14 @@ WindowSight
 ===
 
 ![Software Version](http://img.shields.io/badge/Version-v1.0.1-green.svg?style=flat)
-![Python Version](http://img.shields.io/badge/VisualStudio-2019-blue.svg?style=flat)
+![VS Version](http://img.shields.io/badge/VisualStudio-2019-blue.svg?style=flat)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 ## 概要
-ウィンドウをピックアップするための、Spy++ に搭載されているコントロールのように使用できる ActiveX コントロール。  
+ウィンドウをピックアップするためのActiveX コントロール。Spy++ に搭載されているコントロールのように使用可能。  
 
 ![use](https://user-images.githubusercontent.com/18702413/69725860-81c72280-1162-11ea-9fd4-0e3412c9b112.gif)
+（ウィンドウ左上の照準のようなコントロール）  
 
 ## バージョン
 v1.0.1
@@ -30,15 +31,15 @@ MIT License
     2. 管理者権限でコマンドプロンプトを起動する。
     3. `C:\Windows\SysWow64\regsvr32 WindowSight.ocx` を実行。
 
+※レジストリにファイルパスが登録されるため、インストール後に WindowSight.ocx ファイルを移動すると使用できなくなる。
+
 ### アンインストール方法
 - Windows (x86) の場合
-    1. WindowSight.ocxを任意のフォルダを配置する。
-    2. 管理者権限でコマンドプロンプトを起動する。
-    3. `regsvr32 /u WindowSight.ocx` を実行。
+    1. 管理者権限でコマンドプロンプトを起動する。
+    2. `regsvr32 /u WindowSight.ocx` を実行。
 - Windows (x64) の場合
-    1. WindowSight.ocxを任意のフォルダを配置する。
-    2. 管理者権限でコマンドプロンプトを起動する。
-    3. `C:\Windows\SysWow64\regsvr32 /u WindowSight.ocx` を実行。
+    1. 管理者権限でコマンドプロンプトを起動する。
+    2. `C:\Windows\SysWow64\regsvr32 /u WindowSight.ocx` を実行。
 
 ## 使用方法
 ### C++ / MFCアプリケーション (on Visual Studio 2019)
@@ -68,7 +69,7 @@ MIT License
 3. イベントハンドラの追加方法
     1. AxWindowsSightクラス（AxWindowSightLib名前空間 - AxWindowSightクラス）に追加されているイベント変数とデリゲート型を利用することでイベントハンドラ関数を追加可能。
 
-[サンプル](/WindowSightTest)
+[C#サンプルアプリケーション](/WindowSightTest)
 
 ## リファレンス
 ### プロパティ
