@@ -1,7 +1,7 @@
 WindowSight
 ===
 
-![Software Version](http://img.shields.io/badge/Version-v1.0.0-green.svg?style=flat)
+![Software Version](http://img.shields.io/badge/Version-v1.0.1-green.svg?style=flat)
 ![Python Version](http://img.shields.io/badge/VisualStudio-2019-blue.svg?style=flat)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
@@ -11,7 +11,7 @@ WindowSight
 ![use](https://user-images.githubusercontent.com/18702413/69725860-81c72280-1162-11ea-9fd4-0e3412c9b112.gif)
 
 ## バージョン
-v1.0.0
+v1.0.1
 
 ## 開発環境
 Visual Studio 2019
@@ -89,16 +89,3 @@ MIT License
 - **ChangeTargetWindow**
     - 説明：ドラッグ中の対象ウィンドウ変化イベント
     - 引数：OLE_HANDLE - 新しく対象となったウィンドウのハンドル値
-
-## メモ
-- ActiveXコントロールは時代遅れかもしれないが、C++/MFCアプリ や C# フォームアプリなどで汎用的に使用できるためまだまだ現役の印象。
-- ただし、Visual Studio の C++/MFC での ActiveXコントロールの開発および使用はかなり行いにくくなっている。もはや非サポートというレベル。
-    - ActiveXコントロール開発時にウィザードが作成するコードもあまりスマートではない印象。結局、自動生成されたコードを手動で修正した部分がある。
-        - プロパティを追加したときにidlファイルへ追加されるコードが以前と異なった。
-        - インデントが整っていなかったり関数宣言の追加位置がバラバラであったり。
-    - Issue #3 にも書いたが、ActiveXコントロールをMFCアプリケーションで使用する際にうまくいかなかった。
-        - プロパティ/メソッドは IDispatch ラッパークラスが自動生成され、その中にメンバ関数が定義されることで使用可能となるはずが、メンバ関数が定義されなかった。
-        - イベントは問題なかった。
-    - Visual C++ 6.0 で開発していた頃は問題なくできていたことができなくなっている。
-    - C# フォームアプリだと問題なかった。
-- x64版もビルドしたが使用できなかった。要調査。
