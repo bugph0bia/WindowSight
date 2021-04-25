@@ -5,90 +5,89 @@ WindowSight
 ![VS Version](http://img.shields.io/badge/VisualStudio-2019-blue.svg?style=flat)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
-[English Page](./README.md)
+[Japanese Page](./README.ja.md)
 
-## 概要
-ウィンドウをピックアップするための ActiveX コントロール。Visual Studio 付属のツールである Spy++ に搭載されているコントロールのように使用可能。  
+## Overview
+ActiveX control for finding window(handle)s, like that used by Spy++.
 
-![use](https://user-images.githubusercontent.com/18702413/69725860-81c72280-1162-11ea-9fd4-0e3412c9b112.gif)  
-（ウィンドウ左上の照準のようなコントロール）  
+![use](https://user-images.githubusercontent.com/18702413/69725860-81c72280-1162-11ea-9fd4-0e3412c9b112.gif)
+(Controls like the sight in the upper left corner of the window.)  
 
-## バージョン
+## Version
 v1.0.1
 
-## 開発環境
+## Development Environment
 Visual Studio 2019
 
-## ライセンス
+## Lincense
 MIT License
 
-## インストール／アンインストール
-### インストール方法
-- Windows (x86) の場合
-    1. WindowSight.ocx を任意のフォルダを配置する。
-    2. 管理者権限でコマンドプロンプトを起動する。
-    3. `regsvr32 WindowSight.ocx` を実行。
-- Windows (x64) の場合
-    1. WindowSight.ocx を任意のフォルダを配置する。
-    2. 管理者権限でコマンドプロンプトを起動する。
-    3. `C:\Windows\SysWow64\regsvr32 WindowSight.ocx` を実行。
+## Install/Uninstall
+### How to install
+- Case Windows (x86)
+    1. Place `WindowSight.ocx` in a folder of your choice.
+    2. Launch the command prompt with administrative privileges.
+    3. Run `regsvr32 WindowSight.ocx`.
+- Case Windows (x64)
+    1. Place `WindowSight.ocx` in a folder of your choice.
+    2. Launch the command prompt with administrative privileges.
+    3. Run `C:\Windows\SysWow64\regsvr32 WindowSight.ocx`.
 
-※レジストリにファイルパスが登録されるため、インストール後に WindowSight.ocx ファイルを移動すると使用できなくなる。
+### How to uninstall
+- Case Windows (x86)
+    1. Place `WindowSight.ocx` in a folder of your choice.
+    2. Launch the command prompt with administrative privileges.
+    3. Run `regsvr32 /u WindowSight.ocx`.
+- Case Windows (x64)
+    1. Place `WindowSight.ocx` in a folder of your choice.
+    2. Launch the command prompt with administrative privileges.
+    3. Run `C:\Windows\SysWow64\regsvr32 /u WindowSight.ocx`.
 
-### アンインストール方法
-- Windows (x86) の場合
-    1. 管理者権限でコマンドプロンプトを起動する。
-    2. `regsvr32 /u WindowSight.ocx` を実行。
-- Windows (x64) の場合
-    1. 管理者権限でコマンドプロンプトを起動する。
-    2. `C:\Windows\SysWow64\regsvr32 /u WindowSight.ocx` を実行。
+## How to use
+### C++ / MFC Applications (on Visual Studio 2019)
+1. How to Insert a control into a Dialog.
+    1. Open the dialog editor from the resource view.
+    2. Right-click on the dialog and select "Insert ActiveX Control...".
+    3. Select "WindowSight Control" from the "Insert ActiveX Control" window and click the "OK" button.
+2. How to add properties and methods.
+    1. Right click on the inserted WindowSight control and select "Add Variable...". to add a control variable.
+    2. The IDispatch wrapper class will be automatically inserted into the project and the control variables of the type of the class will be added.
+       The member functions of the wrapper class will have Getter/Setter properties and methods.
+        - This is supposed to be the case, but it does not work in Visual Studio 2017 / 2019; it works fine in 2013.
+3. How to add an event handlers.
+    1. Right click on the inserted WindowSight control and select "Add Event Handler...".
+    2. In the wizard that appears, specify the event you want to add and the member function of the handler, and insert it.
 
-## 使用方法
-### C++ / MFCアプリケーション (on Visual Studio 2019)
-1. ダイアログへのコントールの挿入方法
-    1. リソースビューからダイアログエディタを開く。
-    2. ダイアログ上で右クリックして「ActiveX コントロールの挿入...」を選択。
-    3. 「ActiveX コントロールの挿入」画面から「WindowSight Control」を選択して「OK」ボタンを押下。
-2. プロパティ／メソッドの追加方法
-    1. 挿入した WindowSight コントロールを右クリックして「変数の追加...」を選択してコントロール変数を追加する。
-    2. プロジェクトに自動的に IDispatch ラッパークラスが挿入され、そのクラスの型のコントロール変数が追加される。
-       ラッパークラスのメンバ関数にプロパティの Getter/Setter とメソッドが用意された状態となる。
-        - ・・・はずだが、VisualStudio 2017 / 2019 ではうまくいかない。2013では問題なし。
-3. イベントハンドラの追加方法
-    1. 挿入した WindowSight コントロールを右クリックして「イベントハンドラーの追加...」を選択する。
-    2. 表示されたウィザードで追加したいイベントとハンドラのメンバ関数を指定して挿入する。
+### C# / Windows Form Applications (on Visual Studio 2019)
+1. How to insert a control into a form.
+    1. Open the Form Designer from the Solution Explorer.
+    2. Right-click on an empty area of the toolbox and select "Select Item...".
+    3. Open the "COM Components" tab in the "Select Toolbox Items" window, check the "WindowSight Control" checkbox, and click the "OK" button.
+    4. The "WindowSight Control" is added to the toolbox and inserted into the form.
+    5. If the insertion fails, click "Add Reference..." in the "Project" menu. If the insertion fails, check "WindowSightLib" in the "COM" page of the "Project" menu and click the "OK" button.
+2. How to add properties and methods.
+    1. By inserting the control, the AxWindowSight class (AxWindowSightLib namespace - AxWindowSight class) is added to the project reference and the control variables are of the type of that class. The control variables are of the class type. The properties and methods are also added and ready to use.
+3. How to add the event handlers.
+    1. Event handler functions can be added by using the event variables and delegate types that have been added to the AxWindowSight class (AxWindowSightLib namespace - AxWindowSight class).
 
-### C# / Windowsフォームアプリケーション (on Visual Studio 2019)
-1. フォームへのコントロールの挿入方法
-    1. ソリューションエクスプローラーからフォームのデザイナを開く。
-    2. ツールボックスの何もない領域で右クリックして「アイテムの選択...」を選択する。
-    3. 「ツールボックスアイテムの選択」画面の「COM コンポーネント」タブを開き、「WindowSight Control」にチェックを付けて「OK」ボタンを押下。
-    4. ツールボックス内に「WindowSight Control」が追加されるのでフォームへ挿入する。
-    5. 挿入に失敗する場合は、「プロジェクト」メニューの「参照の追加...」の「COM」ページから「WindowSightLib」にチェックを付けて「OK」ボタンを押下してから試す。
-2. プロパティ／メソッドの追加方法
-    1. コントロールの挿入を行うことでプロジェクトの参照に AxWindowsSight クラス（AxWindowSightLib 名前空間 - AxWindowSight クラス）が追加されており、
-       コントロール変数はそのクラスの型となっている。プロパティとメソッドも追加されているため使用可能な状態となる。
-3. イベントハンドラの追加方法
-    1. AxWindowsSight クラス（AxWindowSightLib 名前空間 - AxWindowSight クラス）に追加されているイベント変数とデリゲート型を利用することでイベントハンドラ関数を追加可能。
+[C# Sample Application](/WindowSightTest)
 
-[C#サンプルアプリケーション](/WindowSightTest)
-
-## リファレンス
-### プロパティ
+## Reference
+### Properties
 - **FoundWindow**
-    - 説明：WindowSight 内で保持している発見済みウィンドウのハンドル値。
-    - 備考：通常 Get で使用する。Set も可能だが実用上の意味は無い。
+    - Description : The handle value of the discovered window held within WindowSight.
+    - Note : Usually used with Get; Set is also possible, but has no practical meaning.
 
-### メソッド
+### Methods
 - **FlashFoundWindow**
-    - 説明：WindowSight 内で保持している発見済みウィンドウを点滅させる。どのウィンドウを保持しているか分からなくなった場合のヘルプ機能。
+    - Description : Flashing of discovered windows held within WindowSight. Help function in case you lose track of which window you are holding.
 
-### イベント
+### Events
 - **DragStart**
-    - 説明：ドラッグ開始イベント
+    - Description : Drug initiation event.
 - **DragEnd**
-    - 説明：ドラッグ終了イベント
-    - 引数：OLE_HANDLE - 最後に保持していたウィンドウのハンドル値
+    - Description : Drag end event.
+    - Parameters : OLE_HANDLE - The handle value of the last window that was held.
 - **ChangeTargetWindow**
-    - 説明：ドラッグ中の対象ウィンドウ変化イベント
-    - 引数：OLE_HANDLE - 新しく対象となったウィンドウのハンドル値
+    - Description : Target window change event during dragging.
+    - Parameters : OLE_HANDLE - Handle value of the newly targeted window.
